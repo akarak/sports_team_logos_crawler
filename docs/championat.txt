@@ -1,0 +1,15 @@
+Fonbet Кубок России, 2023/24
+https://www.championat.com/football/_russiacup/tournament/5475/teams/
+
+
+<div class="teams">
+    <div class="teams-item">
+        <a href="/football/_russiacup/tournament/5475/teams/248921/result/" class="teams-item__link">
+            <img src="https://img.championat.com/team/logo/1469526724948164445.png" class="teams-item__photo" alt="Черноморец">
+                <div class="teams-item__text">
+                    <div class="teams-item__name">Черноморец</div>
+                    <div class="teams-item__country">Новороссийск</div>
+                </div>
+        </a>
+    </div>
+</div>
