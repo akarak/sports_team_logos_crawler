@@ -70,7 +70,7 @@ ITEM_PIPELINES = {
     "championat_com.pipelines.TeamLogoFilesPipeline": 400,
 }
 
-FILES_STORE = "./files/"
+FILES_STORE = "../output/"
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

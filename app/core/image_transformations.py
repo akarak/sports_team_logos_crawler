@@ -1,11 +1,15 @@
-from pathlib import PurePath
+from pathlib import Path
 from PIL import Image
 
 
-def convert_to_tga_without_transparent_margins(filepath: str):
+def convert_to_tga_without_transparent_margins(filepath: Path) -> Path:
     img_src: Image.Image = Image.open(filepath)
     img_dest = crop_transparent_margins(img_src)
-    img_dest.save(str(PurePath(filepath).with_suffix(".tga")), compression="tga_rle")
+
+    filepath_dest = Path(filepath).with_suffix(".tga")
+    img_dest.save(str(filepath_dest), compression="tga_rle")
+
+    return filepath_dest
 
 
 def crop_transparent_margins(img: Image.Image, border: int = 0) -> Image.Image:

@@ -19,3 +19,8 @@ class TeamLogoFilesPipeline(FilesPipeline):
         ext: str = PurePath(urlparse(request.url).path).suffix
 
         return f"{item_name}, {item_country}{ext}"
+
+
+class FilesPipeline_WithoutFullDir(FilesPipeline):
+    def file_path(self, request, response=None, info=None, *params, item=None):
+        return super().file_path(request, response, info, *params, item=item).removeprefix(r"full/")

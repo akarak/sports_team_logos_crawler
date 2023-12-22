@@ -1,10 +1,21 @@
-cd app
+# Запуск в Docker
 
-scrapy genspider teams https://www.championat.com/football/_russiacup/tournament/5475/teams/
+## Сборка и запуск
 
-scrapy list
-scrapy crawl teams -a "start_url=https://www.championat.com/football/_russiacup/tournament/5475/teams/"
+```shellscript
+docker build --tag sports_team_logos_crawler .
+```
 
-Изменено значение USER_AGENT в settings.py для исправления ошибки 403.
 
-USER_AGENT = "Mozilla/5.0 (iPad; CPU OS 12_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148"
+```shellscript
+docker run --rm `
+    --volume c:\\temp\\output:/output --volume c:\\temp\\tasks:/tasks:ro `
+    --env http_proxy=$env:http_proxy --env https_proxy=$env:https_proxy `
+    sports_team_logos_crawler:latest football_russian_cup.json
+```
+
+## Отладка
+
+```shellscript
+docker run --rm -it sports_team_logos_crawler:latest bash
+```
