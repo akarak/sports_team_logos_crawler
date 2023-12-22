@@ -65,7 +65,7 @@ def main(args: argparse.Namespace):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        description="Утилита для скачивания логотипов спортивных команд"
+        description="Утилита для скачивания изображений логотипов спортивных команд"
     )
     parser.add_argument(
         "--output_dir",
