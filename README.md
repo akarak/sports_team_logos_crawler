@@ -19,7 +19,7 @@
 
 Для упрощения разворачивания утилита упакована в образ [Docker](https://www.docker.com/products/docker-desktop/).
 
-## Запуск в Docker
+## Запуск с помощью Docker
 
 ### Сборка
 
@@ -47,5 +47,21 @@ docker run --rm `
 ### Отладка
 
 ```powershell
-docker run --rm -it sports_team_logos_crawler:latest bash
+docker run --entrypoint bash --rm -it sports_team_logos_crawler:latest
+```
+
+## Запуск с помощью Docker Compose
+
+Для удобства отладки добавлена автоматическая пересборка образа при изменении исходного кода. На папки `/tasks` и `/output` мепятся соответствующие папки в папке проекта.
+
+### Сборка
+
+```powershell
+docker compose build
+```
+
+### Запуск
+
+```powershell
+docker compose run --rm sports_team_logos_crawler football_russian_cup.json
 ```

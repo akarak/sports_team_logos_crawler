@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  sports_team_logos_crawler:
+    image: sports_team_logos_crawler:latest
+    build:
+      context: .
+      args:
+        - TASKS_DIR=./tasks/
+        - OUTPUT_DIR=./output/
+    environment:
+      - http_proxy=${HTTP_PROXY}
+      - https_proxy=${HTTPS_PROXY}
+    volumes:
+      - .\output:/output
+      - .\tasks:/tasks:ro
+    develop:
+      watch:
+        - action: rebuild
+          path: ./app/
